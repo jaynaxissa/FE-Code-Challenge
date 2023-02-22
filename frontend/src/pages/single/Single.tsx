@@ -12,6 +12,7 @@ import {
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import Header from "../../components/header/Header";
+import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import { border, borders } from "@mui/system";
 import { Link } from "react-router-dom";
 
@@ -71,9 +72,7 @@ interface Country {
   borders: string[];
 }
 
-interface SingleProps {}
-
-const Single: React.FC<SingleProps> = (props) => {
+const Single = ({handleToggleDarkMode}) => {
   const classes = useStyles();
   const { countryCode } = useParams<{ countryCode: string }>();
   const [country, setCountry] = useState<Country | null>(null);
@@ -102,7 +101,13 @@ const Single: React.FC<SingleProps> = (props) => {
   return (
     <div>
       <div>
-        <Header />
+        <Header handleToggleDarkMode={handleToggleDarkMode}/>
+        <Link to="/">
+          <Button variant="outlined" color="primary" size="large">
+            <KeyboardBackspaceIcon />
+            Back
+          </Button>
+        </Link>
       </div>
       <div>
         <Box display="flex" justifyContent="center">
@@ -181,7 +186,7 @@ const Single: React.FC<SingleProps> = (props) => {
                 </Grid>
                 {/* grid container */}
               </div>
-              </Grid>
+            </Grid>
             {/* grid item  */}
           </Grid>
           {/* grid container */}

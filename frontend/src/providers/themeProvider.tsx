@@ -19,4 +19,4 @@
 // };
 
 // export default ThemeProvider;
-export{}
+export {};

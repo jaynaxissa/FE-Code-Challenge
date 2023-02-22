@@ -16,7 +16,7 @@ interface Country {
   alpha2Code: string;
 }
 
-const Home = () => {
+const Home = ({handleToggleDarkMode}) => {
   const [countries, setCountries] = useState<Country[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [regionFilter, setRegionFilter] = useState("");
@@ -50,7 +50,7 @@ const Home = () => {
 
   return (
     <div>
-      <Header />
+      <Header handleToggleDarkMode={handleToggleDarkMode} />
       <SearchFilter
         searchQuery={searchQuery}
         regionFilter={regionFilter}
